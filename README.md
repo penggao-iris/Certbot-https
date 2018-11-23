@@ -15,8 +15,8 @@ Plugins selected: Authenticator nginx, Installer nginx
 Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org
 Which names would you like to activate HTTPS for?
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-1: cs.atag.bshcn.com.cn
-2: jenkins.atag.bshcn.com.cn
+1: x.com.cn
+2: xx.com.cn
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 Select the appropriate numbers separated by commas and/or spaces, or leave input
 blank to select all options shown (Enter 'c' to cancel): 1
@@ -24,9 +24,9 @@ blank to select all options shown (Enter 'c' to cancel): 1
 执行完成显示生成的证书信息
 IMPORTANT NOTES:
  - Congratulations! Your certificate and chain have been saved at:
-   /etc/letsencrypt/live/cs.atag.bshcn.com.cn/fullchain.pem
+   /etc/letsencrypt/live/x.com.cn/fullchain.pem
    Your key file has been saved at:
-   /etc/letsencrypt/live/cs.atag.bshcn.com.cn/privkey.pem
+   /etc/letsencrypt/live/x.com.cn/privkey.pem
    Your cert will expire on 2019-02-17. To obtain a new or tweaked
    version of this certificate in the future, simply run certbot
    again. To non-interactively renew *all* of your certificates, run
@@ -36,10 +36,10 @@ IMPORTANT NOTES:
  server
 {
     listen 443;
-    server_name jenkins.atag.bshcn.com.cn;
+    server_name xx.com.cn;
     ssl on;
-    ssl_certificate /etc/letsencrypt/live/jenkins.atag.bshcn.com.cn/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/jenkins.atag.bshcn.com.cn/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/xx.com.cn/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/xx.com.cn/privkey.pem;
     #charset koi8-r;
     access_log /var/log/nginx/access.log main;
     location / {
@@ -47,7 +47,7 @@ IMPORTANT NOTES:
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_pass http://192.168.2.106:8080/;
+        proxy_pass http://192.168.1.1:8080/;
     }
 }
 
